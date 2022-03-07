@@ -3,15 +3,19 @@ import ssl
 from email.message import EmailMessage
 
 
-# NB! The less secure feature on the recievers email address needs to be turned on.
-# otherwise the receiver can not receive the email via this code.
+# NB! The less secure feature on the recievers/senders email address needs to be turned on.
 
 
 subject = "Email from Python"
-body = "This is ta test email from Python!"
+body = "This is a test email from Python!"
 sender_email = input("Enter your email: ")
 receiver_email = input("Enter the receivers email: ")
 password = input("Enter a password: ")
+
+message = EmailMessage()
+message["From"] = sender_email
+message["To"] = receiver_email
+message["Subject"] = subject
 
 html = f"""
 <html>
@@ -22,11 +26,7 @@ html = f"""
 </html>
 """
 
-message = EmailMessage()
-message["From"] = sender_email
-message["To"] = receiver_email
-message["Subject"] = subject
-message.set_content(body)
+message.add_alternative(html, subtype="html")
 
 context = ssl.create_default_context()
 
