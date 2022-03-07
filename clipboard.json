@@ -1,1 +1,1 @@
-{"python": "def load_data(filepath):\n    try:  # try to load a file, but if it doesnt exist , load an empty dictionary. (dealing with errors)\n        with open(filepath, \"r\") as f: # r for read\n            data = json.load(f)\n            return data\n    except:\n        return {}"}
+{"python": "clipboard.copy(data[key])", "test": "clipboard.copy(data[key])", "food": "clipboard.copy(data[key])", "pho": "\"please pass exactly one command.\")"}
